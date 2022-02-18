@@ -1,0 +1,10 @@
+F:\Dev\dotnet\WIX\CustomAction\bin\Debug\CustomAction.dll
+F:\Dev\dotnet\WIX\CustomAction\bin\Debug\CustomAction.CA.dll
+F:\Dev\dotnet\WIX\CustomAction\bin\Debug\CustomAction.pdb
+F:\Dev\dotnet\WIX\CustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll
+F:\Dev\dotnet\WIX\CustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.xml
+F:\Dev\dotnet\WIX\CustomAction\obj\x86\Debug\CustomAction.csproj.CoreCompileInputs.cache
+F:\Dev\dotnet\WIX\CustomAction\obj\x86\Debug\CustomAction.csproj.CopyComplete
+F:\Dev\dotnet\WIX\CustomAction\obj\x86\Debug\CustomAction.dll
+F:\Dev\dotnet\WIX\CustomAction\obj\x86\Debug\CustomAction.pdb
+F:\Dev\dotnet\WIX\CustomAction\obj\x86\Debug\CustomAction.csproj.AssemblyReference.cache

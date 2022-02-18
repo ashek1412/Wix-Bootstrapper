@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+     <Bundle Name="!(loc.BundleName)" Version="1.0.0.0" Manufacturer="!(loc.Manufacturer)" UpgradeCode="c4858e43-3e12-4e25-9ec9-d7b393705a16">
+	
+           <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense">
+      <bal:WixStandardBootstrapperApplication
+        LicenseUrl="" />
+</BootstrapperApplicationRef>
+       
+
+
+       
+		<Chain>
+     
+      <PackageGroupRef Id='MicrosoftEdgeWebview2Setup'/>
+      <RollbackBoundary />
+      <MsiPackage SourceFile="$(var.SolutionDir)Publish\pcmtuner\setup.msi" 
+                  Id="PCM"                  
+                  Cache="no" 
+                  DisplayName="PCM Tuner"
+                  DisplayInternalUI="no" 
+                  Visible="yes" 
+                  Permanent="no" 
+                  ForcePerMachine="yes" />
+     
+      
+      <ExePackage SourceFile="$(var.SolutionDir)Publish\pcmflash\flash1.21.exe"
+            Id="pcmflash"
+            DisplayName="PCM flash"
+            Cache="no"              
+            Permanent="no"
+            />
+      <ExePackage SourceFile="$(var.SolutionDir)Publish\gurdent\GrdDrivers.exe"
+            Id="GrdDrivers"
+            DisplayName="Grd Drivers"
+            Cache="no"              
+            Permanent="no"
+            />
+      <ExePackage SourceFile="$(var.SolutionDir)Publish\\scanmatic\Scanmatik_2.21.2beta31_Setup.exe"
+            Id="Scanmatik"
+            DisplayName="Scanmatik"
+            Cache="yes"              
+            Permanent="no"
+            />
+      
+		</Chain>
+	</Bundle>
+
+  <Fragment>
+    <!-- Microsoft Edge Web View -->
+    <PackageGroup Id="MicrosoftEdgeWebview2Setup">
+      <ExePackage Id="MicrosoftEdgeWebview2Setup"
+                  Cache="yes"
+                  Compressed="yes"
+                  PerMachine="yes"
+                  Permanent="no"
+                  Vital="yes"        
+                  InstallCommand="/install"
+                  UninstallCommand="/uninstall"
+                  SourceFile="$(var.SolutionDir)Publish\WebViewUpdate\MicrosoftEdgeWebview2Setup.exe"
+                  />
+    </PackageGroup>
+
+
+  </Fragment>
+</Wix>
