@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+	 xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+	<Bundle Name="PCM_Package_setup" Version="1.0.0.0" Manufacturer="Mahmudul Hasan" UpgradeCode="06A19F6F-688C-44A6-B3D3-26F72DE50689"
+			DisableModify="no">
+		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost">
+			<Payload Name="BootstrapperCore.config" SourceFile="$(var.InstallerUI.TargetDir)InstallerUI.BootstrapperCore.config" />
+			<Payload SourceFile="$(var.InstallerUI.TargetPath)" />
+			<Payload SourceFile="$(var.InstallerUI.TargetDir)Microsoft.Practices.Prism.Mvvm.dll" />
+			<Payload SourceFile="$(var.InstallerUI.TargetDir)Microsoft.Practices.Prism.Mvvm.Desktop.dll" />
+			<Payload SourceFile="$(var.InstallerUI.TargetDir)Microsoft.Practices.Prism.SharedInterfaces.dll" />
+			<Payload SourceFile="$(var.InstallerUI.TargetDir)Newtonsoft.Json.dll" />
+			<!--<PayloadGroupRef Id="LicensePayload"/>-->
+		</BootstrapperApplicationRef>
+
+    <WixVariable Id="WixMbaPrereqLicenseUrl" Value="" />
+    <WixVariable Id="WixMbaPrereqPackageId" Value="" />
+
+		<!-- Variables modified by custom WPF UI -->
+		<Variable bal:Overridable="yes" Name="Prerequisite" Value=""/>
+		<Variable bal:Overridable="yes" Name="InstallLevel" Value="1"/>
+
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}" Result="exists" Variable="WVRTInstalled" />
+
+
+    <Chain>
+      <PackageGroupRef Id='MicrosoftEdgeWebview2Setup'/>
+      <RollbackBoundary />
+
+      
+      <PackageGroupRef Id='pcmflashSetup'/>
+      <PackageGroupRef Id='guardantSetup'/>
+      <PackageGroupRef Id='scanmatikSetup'/>  
+      <MsiPackage SourceFile="$(var.SolutionDir)Publish\pcmtuner\setup.msi"
+            Id="PCM"
+            Cache="no"
+            DisplayName="PCM Tuner"
+            DisplayInternalUI="no"
+            Visible="yes"
+            Permanent="no"
+            ForcePerMachine="yes" />
+			
+		</Chain>
+	</Bundle>
+
+
+
+  <Fragment>
+    <util:FileSearch  
+      Id="pcmflashInstalled"
+      Variable="pcmflashInstalled"
+      Path="[ProgramFilesFolder]PCMflash\pcmflash.exe"
+      Result="exists" />      
+    
+    <PackageGroup Id="pcmflashSetup">
+        <ExePackage SourceFile="$(var.SolutionDir)Publish\pcmflash\pcmflash-1.2.0.exe"
+              Id="pcmflash"
+              DisplayName="PCM flash"
+              Cache="no"
+              Permanent="no"
+              InstallCondition="pcmflashInstalled=0"
+            />
+      </PackageGroup>   
+  </Fragment>
+
+  <Fragment>
+    <util:FileSearch
+      Id="guardantInstalled"
+      Variable="guardantInstalled"      
+      Path="[SystemFolder]grddiag.exe"
+      Result="exists" />
+
+    <PackageGroup Id="guardantSetup">
+      <ExePackage SourceFile="$(var.SolutionDir)Publish\gurdent\GrdDrivers.exe"
+                 Id="GrdDrivers"
+                 DisplayName="Grd Drivers"
+                 Cache="no"
+                 Permanent="no"           
+                 InstallCondition="guardantInstalled=0"
+            />
+    </PackageGroup>
+  </Fragment>
+
+  <Fragment>
+    <util:FileSearch
+      Id="scanmatikInstalled"
+      Variable="scanmatikInstalled"
+      Path="[ProgramFilesFolder]Scanmatik\smwin.exe"
+     
+      Result="exists" />
+
+    <PackageGroup Id="scanmatikSetup">
+
+      <ExePackage SourceFile="$(var.SolutionDir)Publish\\scanmatic\Scanmatik_2.21.2beta31_Setup.exe"
+            Id="Scanmatik"
+            DisplayName="Scanmatik"
+            Cache="yes"
+            Permanent="no"       
+            InstallCondition="scanmatikInstalled=0"
+            />
+    </PackageGroup>
+  </Fragment>
+
+  <Fragment>
+   
+      <PackageGroup Id="MicrosoftEdgeWebview2Setup">
+        <ExePackage Id="MicrosoftEdgeWebview2Setup"
+                    Cache="yes"
+                    Compressed="yes"
+                    PerMachine="yes"
+                    Permanent="no"
+                    Vital="yes"
+                    InstallCondition="NOT WVRTInstalled"
+                    InstallCommand="/install"
+                    UninstallCommand="/uninstall"
+                    SourceFile="$(var.SolutionDir)Publish\WebViewUpdate\MicrosoftEdgeWebview2Setup.exe"
+                  />
+      </PackageGroup>
+  
+  </Fragment>
+
+</Wix>

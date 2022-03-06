@@ -1,0 +1,6 @@
+F:\Dev\dotnet\CustomBurnUI\Bootstrapper\bin\Debug\PCM_Setup.exe
+F:\Dev\dotnet\CustomBurnUI\Bootstrapper\bin\Debug\PCM_Setup.wixpdb
+obj\Debug\Bundle.wixobj
+obj\Debug\Bootstrapper.wixproj.BindContentsFileList.txt
+obj\Debug\Bootstrapper.wixproj.BindOutputsFileList.txt
+obj\Debug\Bootstrapper.wixproj.BindBuiltOutputsFileList.txt

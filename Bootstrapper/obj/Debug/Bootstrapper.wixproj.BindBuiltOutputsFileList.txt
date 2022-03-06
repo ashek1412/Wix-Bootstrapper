@@ -1,0 +1,2 @@
+F:\Dev\dotnet\CustomBurnUI\Bootstrapper\bin\Debug\PCM_Setup.exe
+F:\Dev\dotnet\CustomBurnUI\Bootstrapper\bin\Debug\PCM_Setup.wixpdb
