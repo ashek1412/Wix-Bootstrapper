@@ -1,0 +1,2 @@
+F:\Dev\dotnet\CustomBurnUI\SecondInstaller\bin\Debug\SecondInstaller.msi
+F:\Dev\dotnet\CustomBurnUI\SecondInstaller\bin\Debug\SecondInstaller.wixpdb

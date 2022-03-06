@@ -1,0 +1,6 @@
+F:\Dev\dotnet\CustomBurnUI\SecondInstaller\bin\Debug\SecondInstaller.msi
+F:\Dev\dotnet\CustomBurnUI\SecondInstaller\bin\Debug\SecondInstaller.wixpdb
+obj\Debug\Product.wixobj
+obj\Debug\SecondInstaller.wixproj.BindContentsFileListnull.txt
+obj\Debug\SecondInstaller.wixproj.BindOutputsFileListnull.txt
+obj\Debug\SecondInstaller.wixproj.BindBuiltOutputsFileListnull.txt

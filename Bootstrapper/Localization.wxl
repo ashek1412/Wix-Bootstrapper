@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<WixLocalization xmlns="http://schemas.microsoft.com/wix/2006/localization">
-  <String Id="Manufacturer">PCM Tuner</String>
-  <String Id="BundleName">PCM Tuner Installer</String>
-  <String Id="LicenseRtf" Overridable="yes">EULA_en-us.rtf</String>
-  
-
-</WixLocalization>
-
