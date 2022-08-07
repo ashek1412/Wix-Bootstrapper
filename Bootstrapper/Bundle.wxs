@@ -3,7 +3,7 @@
 	 xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   
-	<Bundle Name="PCM_Package_setup" Version="1.0.0.0" Manufacturer="Mahmudul Hasan" UpgradeCode="06A19F6F-688C-44A6-B3D3-26F72DE50689"
+	<Bundle Name="PCM_Package_setup" Version="1.0.0.0" Manufacturer="PCM Tuner" UpgradeCode="06A19F6F-688C-44A6-B3D3-26F72DE50689"
 			DisableModify="no">
 		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost">
 			<Payload Name="BootstrapperCore.config" SourceFile="$(var.InstallerUI.TargetDir)InstallerUI.BootstrapperCore.config" />
@@ -33,7 +33,7 @@
       <PackageGroupRef Id='pcmflashSetup'/>
       <PackageGroupRef Id='guardantSetup'/>
       <PackageGroupRef Id='scanmatikSetup'/>  
-      <MsiPackage SourceFile="$(var.SolutionDir)Publish\pcmtuner\setup.msi"
+      <MsiPackage SourceFile="$(var.SolutionDir)Publish\pcmtuner\Setup.msi"
             Id="PCM"
             Cache="no"
             DisplayName="PCM Tuner"
@@ -51,16 +51,18 @@
     <util:FileSearch  
       Id="pcmflashInstalled"
       Variable="pcmflashInstalled"
-      Path="[ProgramFilesFolder]PCMflash\pcmflash.exe"
+      Path="[ProgramFilesFolder]PCMtuner Flash\PCMtuner Flash.exe"
       Result="exists" />      
     
     <PackageGroup Id="pcmflashSetup">
-        <ExePackage SourceFile="$(var.SolutionDir)Publish\pcmflash\pcmflash-1.2.0.exe"
+        <MsiPackage SourceFile="$(var.SolutionDir)Publish\pcmflash\PcmtunerFlashSetup.msi"
               Id="pcmflash"
-              DisplayName="PCM flash"
+              DisplayName="PCMTuner"
               Cache="no"
               Permanent="no"
               InstallCondition="pcmflashInstalled=0"
+              ForcePerMachine="yes"
+             
             />
       </PackageGroup>   
   </Fragment>

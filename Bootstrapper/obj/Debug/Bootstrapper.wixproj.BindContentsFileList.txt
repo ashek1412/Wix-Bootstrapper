@@ -4,8 +4,8 @@ F:\Dev\dotnet\CustomBurnUI\InstallerUI\bin\Debug\Microsoft.Practices.Prism.Mvvm.
 F:\Dev\dotnet\CustomBurnUI\InstallerUI\bin\Debug\Microsoft.Practices.Prism.Mvvm.Desktop.dll
 F:\Dev\dotnet\CustomBurnUI\InstallerUI\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
 F:\Dev\dotnet\CustomBurnUI\InstallerUI\bin\Debug\Newtonsoft.Json.dll
-F:\Dev\dotnet\CustomBurnUI\Publish\pcmtuner\setup.msi
+F:\Dev\dotnet\CustomBurnUI\Publish\pcmtuner\Setup.msi
 F:\Dev\dotnet\CustomBurnUI\Publish\WebViewUpdate\MicrosoftEdgeWebview2Setup.exe
-F:\Dev\dotnet\CustomBurnUI\Publish\pcmflash\pcmflash-1.2.0.exe
+F:\Dev\dotnet\CustomBurnUI\Publish\pcmflash\PcmtunerFlashSetup.msi
 F:\Dev\dotnet\CustomBurnUI\Publish\gurdent\GrdDrivers.exe
 F:\Dev\dotnet\CustomBurnUI\Publish\scanmatic\Scanmatik_2.21.2beta31_Setup.exe
